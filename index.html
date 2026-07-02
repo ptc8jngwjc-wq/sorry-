@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry 🥺❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffd6e7,#ffc2d1,#ffe5ec);
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:25px;
+text-align:center;
+width:340px;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+position:relative;
+}
+
+h1{
+color:#ff4d88;
+margin-bottom:15px;
+}
+
+p{
+color:#666;
+margin-bottom:25px;
+}
+
+button{
+padding:14px 22px;
+font-size:16px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+transition:.25s;
+margin:10px;
+}
+
+#yes{
+background:#ff4d88;
+color:white;
+}
+
+#no{
+background:#ddd;
+position:absolute;
+}
+
+#message{
+display:none;
+margin-top:20px;
+font-size:20px;
+color:#ff2e63;
+animation:pop .5s;
+}
+
+@keyframes pop{
+from{transform:scale(.5);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.emoji{
+position:fixed;
+font-size:28px;
+animation:fall 4s linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🥺 Mujhe Maaf Kardo Ek Baar ❤️</h1>
+
+<p>
+Main sach me dil se sorry hoon...<br>
+Ek last chance de do na. 💗
+</p>
+
+<button id="yes">Okay yaar, kar diya maaf ❤️</button>
+
+<button id="no">Nahi karungi 😤</button>
+
+<div id="message">
+🥹❤️ Yaaay!! Thank youuu!!<br><br>
+I Promise, ab tumhe kabhi hurt nahi karunga. 💖✨<br>
+Love You So Much 🫶🥹❤️
+</div>
+
+</div>
+
+<script>
+
+const no=document.getElementById("no");
+
+function moveButton(){
+
+const x=Math.random()*(window.innerWidth-140);
+
+const y=Math.random()*(window.innerHeight-70);
+
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+}
+
+no.addEventListener("mouseover",moveButton);
+no.addEventListener("touchstart",moveButton);
+no.addEventListener("click",moveButton);
+
+document.getElementById("yes").onclick=function(){
+
+document.getElementById("message").style.display="block";
+
+const emojis=["❤️","🥹","💖","💕","💗","💞","🌹","✨","😘","🫶","🎉","😍"];
+
+for(let i=0;i<180;i++){
+
+let e=document.createElement("div");
+
+e.className="emoji";
+
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.animationDuration=(2+Math.random()*3)+"s";
+
+e.style.fontSize=(20+Math.random()*25)+"px";
+
+document.body.appendChild(e);
+
+setTimeout(()=>e.remove(),5000);
+
+}
+
+}
+
+moveButton();
+
+</script>
+
+</body>
+</html>
